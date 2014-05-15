@@ -25,7 +25,7 @@ public class CarrinhoTest {
     }
 
     @Test
-    public void adicionarItem() throws CarrinhoVazioExpected {
+    public void adicionarProduto() throws CarrinhoVazioExpected {
         Produto livro = new Produto("Java em 24 horas", 50.00);
         carrinho.add(livro);
         Produto menor;
@@ -34,7 +34,19 @@ public class CarrinhoTest {
     }
 
     @Test
-    public void adicionarMaisItens() throws CarrinhoVazioExpected {
+    public void adicionarCarrinho() throws CarrinhoVazioExpected {
+        Produto e1 = new Produto("Geladeira", 800.00);
+        carrinho.add(e1);
+        
+        
+        
+        
+        
+        
+    }
+    
+    @Test
+    public void adicionarMaisProdutos() throws CarrinhoVazioExpected {
         Produto livro = new Produto("Java em 24 horas", 50.00);
         carrinho.add(livro);
         Produto deitel = new Produto("Java: como programar", 150.00);
@@ -53,6 +65,20 @@ public class CarrinhoTest {
         assertEquals(original, copia);
     }
     
+    @Test
+    public void totalAPagar() throws CarrinhoVazioExpected
+    {
+        double t;
+        Produto eletronica = new Produto("TV", 450.50);
+        carrinho.add(eletronica);
+        Produto livro = new Produto("Java: como programar", 150.00);
+        carrinho.add(livro);
+        
+        t = carrinho.getTotal();
+        assertEquals((600.0), t);
+        
+    }
+    
     
      @Test
     public void removendoItemExistente() throws CarrinhoVazioExpected{
@@ -60,19 +86,19 @@ public class CarrinhoTest {
         carrinho.add(l1);
         carrinho.add(l1);
         carrinho.add(l1);
-       
-        int qtdeAntiga = carrinho.getQuantidadeProdutos(l1);
+        
+        int qtdeAntiga = carrinho.getQuantidadeItens(l1);
         
         carrinho.remove(l1);
         
-        int qtdeNova = carrinho.getQuantidadeProdutos(l1);
+        int qtdeNova = carrinho.getQuantidadeItens(l1);
         
         assertEquals((qtdeAntiga - 1), qtdeNova);
     }
+    
+    
+    
             
-    
-    
-    
     
     
 }

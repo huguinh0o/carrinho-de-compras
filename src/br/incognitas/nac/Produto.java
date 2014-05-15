@@ -4,11 +4,14 @@ public class Produto {
 
     private String nome;
     private double preco;
-    
+
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
+
+
     }
+    
 
     public String getNome() {
         return nome;
@@ -24,7 +27,8 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }   
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -34,4 +38,6 @@ public class Produto {
     public boolean equals(Produto obj) {
         return nome.equals(obj.nome);
     }
+
+    
 }

@@ -2,11 +2,11 @@ package br.incognitas.nac;
 
 public class Item {
     
-    private double qtd;
+    private int qtd;
     private Produto produto;
     private Carrinho car;
 
-    public Item(double qtd, Produto produto, Carrinho car) {
+    public Item(int qtd, Produto produto, Carrinho car) {
         this.qtd = qtd;
         this.produto = produto;
         this.car = car;
@@ -14,11 +14,11 @@ public class Item {
 
     
 
-    public double getQtd() {
+    public int getQtd() {
         return qtd;
     }
 
-    public void setQtd(double qtd) {
+    public void setQtd(int qtd) {
         this.qtd = qtd;
     }
 

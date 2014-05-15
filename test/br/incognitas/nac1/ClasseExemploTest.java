@@ -1,6 +1,7 @@
-package br.calebe.exemplos.ex02;
+package br.incognitas.nac1;
 
-import br.calebe.exemplos.ex02.controller.ClasseFacadeController;
+import br.incognitas.nac1.ClasseExemplo;
+import br.incognitas.nac1.controller.ClasseFacadeController;
 import junit.framework.Assert;
 import org.easymock.EasyMock;
 import org.junit.Test;

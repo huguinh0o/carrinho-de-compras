@@ -1,6 +1,6 @@
-package br.calebe.exemplos.ex02;
+package br.incognitas.nac1;
 
-import br.calebe.exemplos.ex02.controller.ClasseFacadeController;
+import br.incognitas.nac1.controller.ClasseFacadeController;
 
 /**
  *

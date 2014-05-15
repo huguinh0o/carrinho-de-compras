@@ -1,4 +1,4 @@
-package br.calebe.exemplos.ex02;
+package br.incognitas.nac1;
 
 import javax.ejb.Remote;
 

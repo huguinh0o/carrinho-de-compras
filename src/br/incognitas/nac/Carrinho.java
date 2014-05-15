@@ -1,4 +1,4 @@
-package br.calebe.exemplos.ex01;
+package br.incognitas.nac;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +30,13 @@ public class Carrinho {
     
     public void remove(Produto produto)throws  CarrinhoVazioExpected{
         
-        Item i = new Item(produto);
+        Item i = new Item();
         
-       if(itens.contains(i) &&  itens.get(itens.indexOf(i)).getQtd()==1)
-          itens.remove(i);
+       if(produtos.contains(i) &&  produtos.get(produtos.indexOf(i)).getQtd()==1)
+          produtos.remove(i);
        else
-           if(itens.contains(i))
-              itens.get(itens.indexOf(i)).removeQtd();
+           if(produtos.contains(i))
+              produtos.get(produtos.indexOf(i)).removeQtd();
            else
                throw new CarrinhoVazioExpected();
         

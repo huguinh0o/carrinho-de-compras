@@ -1,6 +1,6 @@
-package br.calebe.exemplos.ex02.controller;
+package br.incognitas.nac1.controller;
 
-import br.calebe.exemplos.ex02.EJBStatelessInterface;
+import br.incognitas.nac1.EJBStatelessInterface;
 import java.io.FileInputStream;
 import java.util.Properties;
 import javax.naming.InitialContext;

@@ -1,4 +1,4 @@
-package br.calebe.exemplos.ex01;
+package br.incognitas.nac;
 
 public class Perfumaria extends Produto {
 

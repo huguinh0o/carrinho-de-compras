@@ -1,5 +1,9 @@
-package br.calebe.exemplos.ex01;
+package br.incognitas.nac;
 
+import br.incognitas.nac.Produto;
+import br.incognitas.nac.Livro;
+import br.incognitas.nac.Carrinho;
+import br.incognitas.nac.CarrinhoVazioExpected;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,7 +45,7 @@ public class CarrinhoTest {
     }
 
     @Test
-    public void produtosIguais() throws CarrinhoVazioExpected {
+    public void ItensIguais() throws CarrinhoVazioExpected {
         Produto original = new Produto("Java em 24 horas", 50.00);
         carrinho.add(original);
         Produto copia = new Produto("Java em 24 horas", 50.00);
@@ -51,8 +55,8 @@ public class CarrinhoTest {
     
     
      @Test
-    public void removendoUmProdutoExistente() throws CarrinhoVazioExpected{
-        Livros l1 = new Livros("Aprendendo a programar JAVA", 150.00);
+    public void removendoItemExistente() throws CarrinhoVazioExpected{
+        Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
         carrinho.add(l1);
         carrinho.add(l1);
         carrinho.add(l1);

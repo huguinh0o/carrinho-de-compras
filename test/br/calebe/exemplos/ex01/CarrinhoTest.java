@@ -14,14 +14,14 @@ public class CarrinhoTest {
     }
 
     @Test(expected = CarrinhoVazioExpected.class)
-    public void colocandoZeroProduto() throws CarrinhoVazioExpected {
+    public void verificaCarrinho() throws CarrinhoVazioExpected {
         Produto menor;
         menor = carrinho.menorProduto();
         assertEquals(null, menor);
     }
 
     @Test
-    public void colocandoUmProduto() throws CarrinhoVazioExpected {
+    public void adicionarItem() throws CarrinhoVazioExpected {
         Produto livro = new Produto("Java em 24 horas", 50.00);
         carrinho.add(livro);
         Produto menor;
@@ -30,7 +30,7 @@ public class CarrinhoTest {
     }
 
     @Test
-    public void colocandoMaisProdutos() throws CarrinhoVazioExpected {
+    public void adicionarMaisItens() throws CarrinhoVazioExpected {
         Produto livro = new Produto("Java em 24 horas", 50.00);
         carrinho.add(livro);
         Produto deitel = new Produto("Java: como programar", 150.00);
@@ -41,11 +41,34 @@ public class CarrinhoTest {
     }
 
     @Test
-    public void identidadeDeProdutos() throws CarrinhoVazioExpected {
+    public void produtosIguais() throws CarrinhoVazioExpected {
         Produto original = new Produto("Java em 24 horas", 50.00);
         carrinho.add(original);
         Produto copia = new Produto("Java em 24 horas", 50.00);
         original = carrinho.menorProduto();
         assertEquals(original, copia);
     }
+    
+    
+     @Test
+    public void removendoUmProdutoExistente() throws CarrinhoVazioExpected{
+        Livros l1 = new Livros("Aprendendo a programar JAVA", 150.00);
+        carrinho.add(l1);
+        carrinho.add(l1);
+        carrinho.add(l1);
+       
+        int qtdeAntiga = carrinho.getQuantidadeProdutos(l1);
+        
+        carrinho.remove(l1);
+        
+        int qtdeNova = carrinho.getQuantidadeProdutos(l1);
+        
+        assertEquals((qtdeAntiga - 1), qtdeNova);
+    }
+            
+    
+    
+    
+    
+    
 }

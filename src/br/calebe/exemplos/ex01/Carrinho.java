@@ -27,4 +27,33 @@ public class Carrinho {
         }
         return menor;
     }
+    
+    public void remove(Produto produto)throws  CarrinhoVazioExpected{
+        
+        Item i = new Item(produto);
+        
+       if(itens.contains(i) &&  itens.get(itens.indexOf(i)).getQtd()==1)
+          itens.remove(i);
+       else
+           if(itens.contains(i))
+              itens.get(itens.indexOf(i)).removeQtd();
+           else
+               throw new CarrinhoVazioExpected();
+        
+    }
+
+    public int getQuantidadeProdutos(Produto produto) throws CarrinhoVazioExpected{
+        
+         Item i = new Item(produto);
+        
+       if(produtos.contains(i))
+           return produtos.get(produtos.indexOf(i)).getQtd();
+       else
+           throw new ProdutoInexistenteExpected();
+        
+    }
+    
+    
+    
+    
 }

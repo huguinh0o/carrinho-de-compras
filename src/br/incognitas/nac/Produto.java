@@ -8,10 +8,8 @@ public class Produto {
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-
     }
     
-
     public String getNome() {
         return nome;
     }
@@ -28,7 +26,6 @@ public class Produto {
         this.preco = preco;
     }
 
-
     @Override
     public boolean equals(Object obj) {
         return equals((Produto) obj);
@@ -38,5 +35,4 @@ public class Produto {
         return nome.equals(obj.nome);
     }
 
-    
 }

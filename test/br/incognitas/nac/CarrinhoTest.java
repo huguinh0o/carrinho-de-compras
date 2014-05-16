@@ -15,6 +15,7 @@ import org.junit.Test;
 public class CarrinhoTest {
 
     private Carrinho carrinho;
+    private Produto produtos;
 
     @Before
     public void criandoCarrinho() {
@@ -31,7 +32,7 @@ public class CarrinhoTest {
     
     // CT02 - Adicionar produto no carrinho
     @Test
-    public void adicionarProduto(){
+    public void adicionarProduto() {
         int qtdAntiga = carrinho.getQuantidadeProdutos();
         
         Livro livro = new Livro("O ultimo exorcismo", 50.00);
@@ -40,6 +41,7 @@ public class CarrinhoTest {
         int qtdNova = carrinho.getQuantidadeProdutos();
         
         assertEquals(qtdAntiga+1,qtdNova);
+        
     }
 
     // CT03 - Ao add um produto igual, a quantidade de produtos no carrinho deve ser a mesma
@@ -48,41 +50,40 @@ public class CarrinhoTest {
         
         Livro livro = new Livro("Java: como programar", 50.00);
         carrinho.add(livro);
-        int qtdAntiga=carrinho.getQuantidadeProdutos();   
+        int qtdAntiga = carrinho.getQuantidadeProdutos();   
         carrinho.add(livro);
-        int qtdNova=carrinho.getQuantidadeProdutos();
+        int qtdNova = carrinho.getQuantidadeProdutos();
         assertEquals(qtdAntiga, qtdNova);
+        
     }
 
+    // CT04 - 
     @Test
     public void ItensIguais() throws CarrinhoVazioExpected {
         Produto original = new Produto("Java em 24 horas", 50.00);
         carrinho.add(original);
         Produto copia = new Produto("Java em 24 horas", 50.00);
-         assertEquals(original, copia);
+        assertEquals(original, copia);
+        
     }
     
-    //CT05 - Ao adicionar 2 produtos iguais a quantidade de itens deve ser incrementada
+    // CT05 - Ao adicionar 2 produtos iguais a quantidade de itens deve ser incrementada
     
     @Test
        public void acrescentarProdutoExistente() {
         
         Livro livro = new Livro("Java: como programar", 50.00);
         carrinho.add(livro);
-        int qtdAntiga=carrinho.getQuantidadeItens(livro);   
+        int qtdAntiga = carrinho.getQuantidadeItens(livro);   
         carrinho.add(livro);
-        int qtdNova=carrinho.getQuantidadeItens(livro);
-        
+        int qtdNova = carrinho.getQuantidadeItens(livro);
         assertEquals(qtdAntiga+1, qtdNova);
+        
     }
     
-    
-    
-    
     @Test
-    public void totalAPagar() throws CarrinhoVazioExpected
-    {
-        Double t=0.0;
+    public void totalAPagar() throws CarrinhoVazioExpected {
+        Double t = 0.0;
         Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
         Perfumaria p1 = new Perfumaria("212",200);
         
@@ -93,7 +94,6 @@ public class CarrinhoTest {
 
         assertEquals(t,carrinho.getTotal());
         
-        
     }
     
    // remover um produto
@@ -101,38 +101,42 @@ public class CarrinhoTest {
     public void removendoItemExistente()throws CarrinhoVazioExpected {
         Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
         
-        int qtdAntiga= carrinho.getQuantidadeProdutos();
+        int qtdAntiga = carrinho.getQuantidadeProdutos();
         carrinho.add(l1);
         carrinho.remove(l1);
         int qtdeNova = carrinho.getQuantidadeProdutos();
         
         assertEquals(qtdAntiga, qtdeNova);
-    }
-    
-    
-    // Listar
-    @Test
-    public void listarProdutos()
-    {
-        Livro biblia = new Livro("A biblia de c#", 250.00);
-        Perfumaria perfume = new Perfumaria("perfume feminino", 150.00);
         
-        carrinho.add(biblia);
-        carrinho.add(perfume);
+    }
+   
+    // Listar
+    
+    /*@Test
+    public void listarProdutos(){
+    
+        Livro b1 = new Livro("Os Batutas", 100.00);
+        Perfumaria p1 = new Perfumaria("Only the Brave", 150.00);
+        
+        carrinho.add(b1);
+        carrinho.add(p1);
 
         ArrayList<Item>produtosAdicionar = new ArrayList<>(
-                Arrays.asList(new Item(biblia),new Item(perfume)));
+                Arrays.asList(new Item(b1),new Item(p1)));
         
-        
-        
-        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());
+                
+       boolean contem = false;
+       int index = 0;
     
-    
-    
-    }
-    
-    
+        for(int i = 0; i < produtosAdicionar.size(); i++)
             
-    
-    
-}
+            if(produtosAdicionar.indexOf(i) == carrinho.)
+            {
+                contem = true;
+                index = i;
+                break;
+            }
+         
+        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());*/
+ 
+    }

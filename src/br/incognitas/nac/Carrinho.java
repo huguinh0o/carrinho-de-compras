@@ -11,22 +11,19 @@ public class Carrinho {
         itens = new ArrayList<>();
     }
 
-    
     public void add(Produto produto) {
         
-        Item item= new Item(produto);
+        Item item = new Item(produto);
         
         boolean contem = false;
         int index = 0;
-        for(int i = 0; i < itens.size(); i++ )
+        for(int i = 0; i < itens.size(); i++)
             if(itens.get(i).getProduto().getNome() == produto.getNome())
             {
                 contem = true;
                 index = i;
                 break;
             }
-        
-        
         
             if(contem)
             {
@@ -39,7 +36,7 @@ public class Carrinho {
     
     }
     
-    public int getQuantidadeProdutos(){
+    public int getQuantidadeProdutos() {
     
        return itens.size();
 
@@ -48,37 +45,26 @@ public class Carrinho {
     public int getQuantidadeItens(Produto produto)
     {
         Item item = new Item(produto);
-        int x=0;
-         for(int i = 0; i < itens.size(); i++ )
+        int x = 0;
+         for(int i = 0; i < itens.size(); i++)
             if(itens.get(i).getProduto().getNome() == produto.getNome())
             {
-                x= itens.get(i).getQtd();
+                x = itens.get(i).getQtd();
             }
 
             return x;    
             
     }
     
-    
-    
-    
      public void verificaProduto() throws CarrinhoVazioExpected {
         if (itens.isEmpty()) {
             throw new CarrinhoVazioExpected();
         }
-        /*else
-        {
-            Produto menor = produtos.get(0);
-            for (Produto produto : produtos) {
-            if (produto.getPreco() < menor.getPreco()) {
-                menor = produto;
-            }*/
-        }
+     }
            
-    
     public Double getTotal()
     {
-        Double total=0.0;
+        Double total = 0.0;
         for(int k = 0; k < itens.size(); k++)
         {
             total += (itens.get(k)).getProduto().getPreco() * itens.get(k).getQtd();
@@ -86,11 +72,11 @@ public class Carrinho {
         return total;       
     }
     
-    public void remove(Produto produto)throws CarrinhoVazioExpected{
+    public void remove(Produto produto)throws CarrinhoVazioExpected {
         
         Item item = new Item(produto);
         
-          for(int i = 0; i < itens.size(); i++ )
+          for(int i = 0; i < itens.size(); i++)
             
               if(itens.get(i).getProduto().getNome() == produto.getNome())
             {
@@ -101,8 +87,7 @@ public class Carrinho {
                   throw new CarrinhoVazioExpected();
           
     }
-
-    
+ 
     public boolean vazio()
     {
         return itens.isEmpty();
@@ -112,6 +97,5 @@ public class Carrinho {
     {
         return itens;
     }
-
-        
+ 
 }

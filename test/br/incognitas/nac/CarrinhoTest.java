@@ -4,6 +4,10 @@ import br.incognitas.nac.Produto;
 import br.incognitas.nac.Livro;
 import br.incognitas.nac.Carrinho;
 import br.incognitas.nac.CarrinhoVazioExpected;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,15 +82,21 @@ public class CarrinhoTest {
     @Test
     public void totalAPagar() throws CarrinhoVazioExpected
     {
-        double t;
+        Double t=0.0;
         Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
-        Livro l2 = new Livro("Aprendendo a programar JAVA", 150.00);
         Perfumaria p1 = new Perfumaria("212",200);
-        Perfumaria p2 = new Perfumaria("212",200);
+        
+        t= l1.getPreco()+p1.getPreco();
+        
+        carrinho.add(p1);
+        carrinho.add(l1);
+
+        assertEquals(t,carrinho.getTotal());
+        
         
     }
     
-   // Ao remover um produto do carrinho, se só existir uma quantidade desse produto, o item deve ser removido.
+   // remover um produto
      @Test
     public void removendoItemExistente()throws CarrinhoVazioExpected {
         Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
@@ -99,6 +109,27 @@ public class CarrinhoTest {
         assertEquals(qtdAntiga, qtdeNova);
     }
     
+    
+    // Listar
+    @Test
+    public void listarProdutos()
+    {
+        Livro biblia = new Livro("A biblia de c#", 250.00);
+        Perfumaria perfume = new Perfumaria("perfume feminino", 150.00);
+        
+        carrinho.add(biblia);
+        carrinho.add(perfume);
+
+        ArrayList<Item>produtosAdicionar = new ArrayList<>(
+                Arrays.asList(new Item(biblia),new Item(perfume)));
+        
+        
+        
+        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());
+    
+    
+    
+    }
     
     
             

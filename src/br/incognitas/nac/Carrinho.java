@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Carrinho {
 
-    private List<Item> itens;
+    private ArrayList<Item> itens;
 
     public Carrinho() {
         itens = new ArrayList<>();
@@ -75,46 +75,13 @@ public class Carrinho {
             }*/
         }
            
-        public Produto verificarMaiorProduto() throws CarrinhoVazioExpected {
-        if (itens.isEmpty()) {
-            throw new CarrinhoVazioExpected();
-        }
-        else
-        {
-            Produto maior = produtos.get(0);
-            for (Produto produto : produtos) {
-            if (produto.getPreco() > maior.getPreco()) {
-                maior = produto;
-            }
-        }
-        return maior;
-        }        
-    }
-
-    
-    public Produto verificarMenorProduto() throws CarrinhoVazioExpected {
-        if (produtos.isEmpty()) {
-            throw new CarrinhoVazioExpected();
-        }
-        else
-        {
-            Produto menor = produtos.get(0);
-            for (Produto produto : produtos) {
-            if (produto.getPreco() < menor.getPreco()) {
-                menor = produto;
-            }
-        }
-        return menor;
-        }
-
-        
-    }
     
     public Double getTotal()
     {
-        for(int k = 0; k < produtos.size(); k++)
+        Double total=0.0;
+        for(int k = 0; k < itens.size(); k++)
         {
-            total += (produtos.get(k)).getPreco();
+            total += (itens.get(k)).getProduto().getPreco() * itens.get(k).getQtd();
         }
         return total;       
     }
@@ -127,7 +94,6 @@ public class Carrinho {
             
               if(itens.get(i).getProduto().getNome() == produto.getNome())
             {
-                if(itens.get(i).getQtd()==1)
                 itens.remove(i);
                 break;
             }
@@ -137,12 +103,14 @@ public class Carrinho {
     }
 
     
-    
-    ////////////////////////////////////////////////////////////////////////////////////////////
-    
     public boolean vazio()
     {
         return itens.isEmpty();
+    }
+    
+    public ArrayList<Item> getItens()
+    {
+        return itens;
     }
 
         

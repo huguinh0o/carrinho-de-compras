@@ -5,8 +5,8 @@ public class Item {
     private int qtd;
     private Produto produto;
 
-    public Item(int qtd, Produto produto) {
-        this.qtd = qtd;
+    public Item(Produto produto) {
+        this.qtd = 1;
         this.produto = produto;
     }
 
@@ -14,8 +14,8 @@ public class Item {
         return qtd;
     }
 
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
+    public void setQtd() {
+        this.qtd ++;
     }
 
     public Produto getProduto() {

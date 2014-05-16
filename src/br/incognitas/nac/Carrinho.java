@@ -5,20 +5,65 @@ import java.util.List;
 
 public class Carrinho {
 
-    private List<Produto> produtos;
-    private double total = 0.0;
+    private List<Item> itens;
 
     public Carrinho() {
-        produtos = new ArrayList<>();
+        itens = new ArrayList<>();
     }
 
     
     public void add(Produto produto) {
-        produtos.add(produto);
+        
+        Item item= new Item(produto);
+        
+        boolean contem = false;
+        int index = 0;
+        for(int i = 0; i < itens.size(); i++ )
+            if(itens.get(i).getProduto().getNome() == produto.getNome())
+            {
+                contem = true;
+                index = i;
+                break;
+            }
+        
+        
+        
+            if(contem)
+            {
+               itens.get(index).setQtd();
+            }
+            else
+            {
+                itens.add(item);
+            }
+    
     }
     
+    public int getQuantidadeProdutos(){
+    
+       return itens.size();
+
+    }
+    
+    public int getQuantidadeItens(Produto produto)
+    {
+        Item item = new Item(produto);
+        int x=0;
+         for(int i = 0; i < itens.size(); i++ )
+            if(itens.get(i).getProduto().getNome() == produto.getNome())
+            {
+                x= itens.get(i).getQtd();
+            }
+
+            return x;    
+            
+    }
+    
+    
+    
+    
      public void verificaProduto() throws CarrinhoVazioExpected {
-        if (produtos.isEmpty()) {
+        if (itens.isEmpty()) {
             throw new CarrinhoVazioExpected();
         }
         /*else
@@ -31,7 +76,7 @@ public class Carrinho {
         }
            
         public Produto verificarMaiorProduto() throws CarrinhoVazioExpected {
-        if (produtos.isEmpty()) {
+        if (itens.isEmpty()) {
             throw new CarrinhoVazioExpected();
         }
         else
@@ -74,43 +119,30 @@ public class Carrinho {
         return total;       
     }
     
-    public void remove(Produto produto)throws  CarrinhoVazioExpected{
+    public void remove(Produto produto)throws CarrinhoVazioExpected{
         
-        Item i = new Item(produto);
+        Item item = new Item(produto);
         
-        if(produtos.contains(i) && produtos.get(produtos.indexOf(i)).getQtd() == 1)
-            produtos.remove(i);
-        else
-             throw new CarrinhoVazioExpected();
-           
-        
-        /*(if(produtos.contains(i) &&  produtos.get(produtos.indexOf(i)).getQtd()==1)
-          produtos.remove(i);
-       else
-           if(produtos.contains(i))
-              produtos.get(produtos.indexOf(i)).removeQtd();
-           else
-               throw new CarrinhoVazioExpected();
-        */
+          for(int i = 0; i < itens.size(); i++ )
+            
+              if(itens.get(i).getProduto().getNome() == produto.getNome())
+            {
+                if(itens.get(i).getQtd()==1)
+                itens.remove(i);
+                break;
+            }
+            else
+                  throw new CarrinhoVazioExpected();
+          
     }
 
-    public int getQuantidadeItens(Produto produto) throws CarrinhoVazioExpected{
-        
-       int qtde;
-       Item i = new Item(produto);
-       
-       if(produtos.get(i) == false)
-           qtde = produtos.size();
-       else
-           throw new CarrinhoVazioExpected();
-       
-       return qtde;
-        
-       /*if(produtos.contains(i))
-           return produtos.get(produtos.indexOf(i)).getQtd();
-       else
-           throw new CarrinhoVazioExpected();
-       */
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public boolean vazio()
+    {
+        return itens.isEmpty();
     }
 
         

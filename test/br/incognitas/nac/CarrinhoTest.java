@@ -19,30 +19,25 @@ public class CarrinhoTest {
 
     @Test(expected = CarrinhoVazioExpected.class)
     public void verificaCarrinho() throws CarrinhoVazioExpected {
-        Produto menor;
-        menor = carrinho.menorProduto();
-        assertEquals(null, menor);
+        Produto verifica;
+        verifica = carrinho.verificarMenorProduto();
+        assertEquals(null, verifica);
     }
 
     @Test
     public void adicionarProduto() throws CarrinhoVazioExpected {
-        Produto livro = new Produto("Java em 24 horas", 50.00);
+        Produto livro = new Produto("O ultimo exorcismo", 50.00);
         carrinho.add(livro);
-        Produto menor;
-        menor = carrinho.menorProduto();
-        assertEquals(livro, menor);
+        assertEquals(livro, this);
     }
 
     @Test
     public void adicionarCarrinho() throws CarrinhoVazioExpected {
         Produto e1 = new Produto("Geladeira", 800.00);
-        carrinho.add(e1);
-        
-        
-        
-        
-        
-        
+        carrinho.add(e1);    
+        Produto p1 = new Produto("Uomini", 150.00);        
+        carrinho.add(p1);
+        assertEquals(p1, this);
     }
     
     @Test
@@ -51,9 +46,7 @@ public class CarrinhoTest {
         carrinho.add(livro);
         Produto deitel = new Produto("Java: como programar", 150.00);
         carrinho.add(deitel);
-        Produto menor;
-        menor = carrinho.menorProduto();
-        assertEquals(livro, menor);
+        assertEquals(livro, this);
     }
 
     @Test
@@ -61,8 +54,7 @@ public class CarrinhoTest {
         Produto original = new Produto("Java em 24 horas", 50.00);
         carrinho.add(original);
         Produto copia = new Produto("Java em 24 horas", 50.00);
-        original = carrinho.menorProduto();
-        assertEquals(original, copia);
+         assertEquals(original, copia);
     }
     
     @Test

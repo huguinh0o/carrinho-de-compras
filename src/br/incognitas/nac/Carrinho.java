@@ -16,18 +16,53 @@ public class Carrinho {
     public void add(Produto produto) {
         produtos.add(produto);
     }
-
-    public Produto menorProduto() throws CarrinhoVazioExpected {
+    
+     public void verificaProduto() throws CarrinhoVazioExpected {
         if (produtos.isEmpty()) {
             throw new CarrinhoVazioExpected();
         }
-        Produto menor = produtos.get(0);
-        for (Produto produto : produtos) {
+        /*else
+        {
+            Produto menor = produtos.get(0);
+            for (Produto produto : produtos) {
+            if (produto.getPreco() < menor.getPreco()) {
+                menor = produto;
+            }*/
+        }
+           
+        public Produto verificarMaiorProduto() throws CarrinhoVazioExpected {
+        if (produtos.isEmpty()) {
+            throw new CarrinhoVazioExpected();
+        }
+        else
+        {
+            Produto maior = produtos.get(0);
+            for (Produto produto : produtos) {
+            if (produto.getPreco() > maior.getPreco()) {
+                maior = produto;
+            }
+        }
+        return maior;
+        }        
+    }
+
+    
+    public Produto verificarMenorProduto() throws CarrinhoVazioExpected {
+        if (produtos.isEmpty()) {
+            throw new CarrinhoVazioExpected();
+        }
+        else
+        {
+            Produto menor = produtos.get(0);
+            for (Produto produto : produtos) {
             if (produto.getPreco() < menor.getPreco()) {
                 menor = produto;
             }
         }
         return menor;
+        }
+
+        
     }
     
     public Double getTotal()

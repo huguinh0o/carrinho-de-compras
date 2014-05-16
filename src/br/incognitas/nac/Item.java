@@ -4,15 +4,11 @@ public class Item {
     
     private int qtd;
     private Produto produto;
-    private Carrinho car;
 
-    public Item(int qtd, Produto produto, Carrinho car) {
+    public Item(int qtd, Produto produto) {
         this.qtd = qtd;
         this.produto = produto;
-        this.car = car;
     }
-
-    
 
     public int getQtd() {
         return qtd;
@@ -28,15 +24,5 @@ public class Item {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
-    }
-
-    public Carrinho getCar() {
-        return car;
-    }
-
-    public void setCar(Carrinho car) {
-        this.car = car;
-    }
-   
-    
+    }    
 }

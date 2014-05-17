@@ -126,19 +126,21 @@ public class CarrinhoTest {
                 Arrays.asList(new Item(b1),new Item(p1)));
         
                 
-       boolean contem = false;
-       int index = 0;
+       boolean diference = false;
+       
+       ArrayList<Item> carrinhoItens = carrinho.getItens();
     
         for(int i = 0; i < produtosAdicionar.size(); i++)
             
-            if(produtosAdicionar.get(i).getProduto().getNome() == carrinho.getItens())
+            if(produtosAdicionar.get(i).getProduto().getNome() != carrinhoItens.get(i).getProduto().getNome())
             {
-                contem = true;
-                index = i;
+                diference = true;
                 break;
             }
          
-        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());
+        assertEquals(diference, false);
  
     }
+
+ 
 }

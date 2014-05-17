@@ -58,7 +58,7 @@ public class Carrinho {
     
      public void verificaProduto() throws CarrinhoVazioExpected {
         if (itens.isEmpty()) {
-            throw new CarrinhoVazioExpected()
+            throw new CarrinhoVazioExpected();
         }
      }
            

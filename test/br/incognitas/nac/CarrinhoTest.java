@@ -57,7 +57,7 @@ public class CarrinhoTest {
         
     }
 
-    // CT04 - 
+    // CT04 - Add item igual
     @Test
     public void ItensIguais() throws CarrinhoVazioExpected {
         Produto original = new Produto("Java em 24 horas", 50.00);
@@ -81,6 +81,7 @@ public class CarrinhoTest {
         
     }
     
+    // CT06 - ao adicionar dois itens, fazer a soma e mostrar o total a pagar
     @Test
     public void totalAPagar() throws CarrinhoVazioExpected {
         Double t = 0.0;
@@ -96,7 +97,7 @@ public class CarrinhoTest {
         
     }
     
-   // remover um produto
+   // CT07 - remover um produto
      @Test
     public void removendoItemExistente()throws CarrinhoVazioExpected {
         Livro l1 = new Livro("Aprendendo a programar JAVA", 150.00);
@@ -110,9 +111,9 @@ public class CarrinhoTest {
         
     }
    
-    // Listar
+    // CT08 -  Listar
     
-    /*@Test
+    @Test
     public void listarProdutos(){
     
         Livro b1 = new Livro("Os Batutas", 100.00);
@@ -130,13 +131,14 @@ public class CarrinhoTest {
     
         for(int i = 0; i < produtosAdicionar.size(); i++)
             
-            if(produtosAdicionar.indexOf(i) == carrinho.)
+            if(produtosAdicionar.get(i).getProduto().getNome() == carrinho.getItens())
             {
                 contem = true;
                 index = i;
                 break;
             }
          
-        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());*/
+        assertArrayEquals(produtosAdicionar.toArray(),carrinho.getItens().toArray());
  
     }
+}
